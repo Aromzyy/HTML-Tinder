@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tinder Cards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="card-container"></div>
+  
+    {% for card in cards %}
+    <div class="card">
+      
+      <img src="{{ card.image }}" alt="{{ card.name }}" width="40%" >
+      <br/>
+      <div class="card-info">
+        <h3>{{ card.name }}</h3>
+        <p>{{ card.price }} | {{ card.location }}</p>
+
+        <form method="post" action="/like">
+          <input type="hidden" name="liked_card" value="{{ card.name }}">
+          <button type="submit" class="dislike-button">Nope!</button>
+          <button type="submit" class="heart-button">Yummy!</button>
+        </form>
+
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+</body>
+
+</html>
+
+
